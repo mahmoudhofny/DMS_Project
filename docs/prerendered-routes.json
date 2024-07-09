@@ -1,0 +1,24 @@
+{
+  "routes": [
+    "/admin",
+    "/admin/employees",
+    "/admin/profile",
+    "/admin/settings",
+    "/affair",
+    "/affair/academic",
+    "/affair/documents",
+    "/affair/profile",
+    "/affair/regs",
+    "/affair/Settings",
+    "/doctor",
+    "/doctor/material",
+    "/doctor/profile",
+    "/doctor/settings",
+    "/home",
+    "/home/profile",
+    "/home/requests",
+    "/home/settings",
+    "/login",
+    "/signup"
+  ]
+}
