@@ -1,0 +1,59 @@
+<a class="close_button" mat-button (click)="close()">
+  <img src="/assets/close.svg" alt="" />
+</a>
+
+<h2 mat-dialog-title class="custom-dialog-title">Edit Employee</h2>
+
+<form [formGroup]="editEmp">
+  <div class="form__group">
+    <mat-dialog-content class="custom-dialog-content">
+      <input
+        formControlName="userName"
+        type="text"
+        name="userName"
+        [value]="settingInfo?.userName"
+        placeholder="Set New Username"
+      />
+      <p
+        class="form_warn"
+        *ngIf="userName?.invalid && userName?.touched && userName?.dirty"
+      >
+        <span *ngIf="userName?.errors"> User Name Must be between 6 & 20 </span>
+      </p>
+      <!-- email -->
+
+      <input
+        formControlName="email"
+        type="email"
+        name="email"
+        [value]="settingInfo?.email"
+        placeholder="Set New Email"
+      />
+      <p
+        class="form_warn"
+        *ngIf="email?.invalid && email?.touched && email?.dirty"
+      >
+        <span *ngIf="email?.errors"> User Name Must Valid Email </span>
+      </p>
+      <!-- pass -->
+      <input
+        formControlName="password"
+        type="text"
+        name="password"
+        [value]="settingInfo?.password"
+        placeholder="Set New Password"
+      />
+      <p
+        class="form_warn"
+        *ngIf="password?.invalid && password?.touched && password?.dirty"
+      >
+        <span *ngIf="password?.errors"> Password Must be between 8 & 20 </span>
+      </p>
+      <!--  -->
+      <div class="done" *ngIf="edit == true">Edited successfully</div>
+    </mat-dialog-content>
+    <mat-dialog-actions class="custom-dialog-actions">
+      <button mat-button (click)="editFun()">Edit Employee</button>
+    </mat-dialog-actions>
+  </div>
+</form>

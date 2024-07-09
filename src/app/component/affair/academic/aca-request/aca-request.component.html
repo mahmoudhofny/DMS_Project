@@ -1,0 +1,60 @@
+<!-- {{ theDocment?.filePath }} -->
+<div class="aca_page" *ngFor="let item of theDocment">
+  <div class="head">
+    <h1 class="header">Academic Requests</h1>
+
+    <p class="upload_at">
+      {{
+        (item?.uploadedAt).substring(0, 10) +
+          " " +
+          (item?.uploadedAt).substring(11, 16)
+      }}
+    </p>
+  </div>
+
+  <div class="box">
+    <a target="_blank" href="{{ item?.filePath }}">
+      <div class="image">
+        <div class="title">
+          <img
+            *ngIf="(item?.filePath).slice(-3) == 'pdf'"
+            src="assets/pdf 1.svg"
+            alt="pic"
+          />
+          <img
+            *ngIf="
+              (item?.filePath).slice(-3) == 'jpg' ||
+              (item?.filePath).slice(-3) == 'png' ||
+              (item?.filePath).slice(-4) == 'jpeg'
+            "
+            src="{{ item.filePath }}"
+            alt="pic"
+          />
+        </div>
+      </div>
+    </a>
+    <p>
+      {{
+        (item?.uploadedAt).substring(0, 10) +
+          " " +
+          (item?.uploadedAt).substring(11, 16)
+      }}
+    </p>
+    <div class="btns">
+      <button
+        class="btn__class decline"
+        routerLink="/affair/academic/archived"
+        (click)="decline(item.id)"
+      >
+        Decline
+      </button>
+      <button
+        class="btn__class accept"
+        routerLink="/affair/academic/archived"
+        (click)="accept(item.id)"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,279 @@
+$color_blue: #3f69ff;
+$color_blue_alt: #113fe2;
+$color_back: #f5f5f9;
+$color_red: rgb(188, 5, 5);
+$color_green: rgb(5, 131, 1);
+$color_grey: #888888;
+$color_light: #fff;
+$color_text: #515151;
+// dark
+// $color_back: #0f0d26;
+* {
+  box-sizing: border-box;
+}
+*:focus {
+  outline: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo", sans-serif;
+  font-family: "Harmattan", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  background-color: $color_back;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: $color_light;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue-alt-color);
+}
+//
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pag-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.button-btn {
+  background-color: $color_blue;
+  color: $color_light;
+  cursor: pointer;
+  padding: 12px 35px;
+  min-width: 130px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  transition: 0.3s;
+  &:hover {
+    background-color: $color_blue_alt;
+  }
+  &:disabled {
+    background-color: $color_grey;
+  }
+}
+button {
+  cursor: pointer;
+}
+.btn__class {
+  outline: none;
+  border: transparent;
+  background-color: $color_blue;
+  padding: 8px 20px;
+  color: $color_light;
+  border-radius: 20px;
+  transition: 0.3s;
+  &:hover {
+    background-color: $color_blue_alt;
+  }
+  a {
+    color: $color_light;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn__class {
+    padding: 5px 10px;
+  }
+}
+@media (max-width: 400px) {
+  .btn__class {
+    padding: 2px 6px;
+    a {
+      font-size: 13px;
+    }
+  }
+}
+// Logo
+.all__page {
+  .sidebar {
+    padding: 20px 0;
+  }
+}
+
+// text field
+
+input {
+  border: none;
+  outline: none;
+  background: inherit;
+}
+//
+.text__field {
+  min-width: 300px;
+  input {
+    width: 100%;
+    font-size: 14px;
+    padding: 14px 70px 14px 20px;
+    border-radius: 20px;
+    background-color: #ebebeb;
+    color: $color_text;
+    border: 2px solid transparent;
+    transition: 0.3s;
+    &:focus {
+      border: 2px solid $color_blue;
+    }
+  }
+  input.ng-invalid.ng-dirty {
+    border: 1px solid $color_red;
+  }
+  input.ng-valid {
+    border: 1px solid $color_green;
+  }
+  .form_warn {
+    font-size: 12px;
+    text-align: center;
+    color: $color_red;
+  }
+}
+
+.alert.alert-warning {
+  background-color: #fff0dc;
+  padding: 20px;
+  margin-top: 20px;
+  color: #a66a1d;
+  font-size: 20px;
+  box-shadow: 1px 1px 1px 0px #00000033;
+}
+
+// POpup COmponent
+
+.custom-dialog-container .mat-dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%; /* Adjust as needed */
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0;
+}
+.mat-mdc-dialog-component-host {
+  .mdc-dialog__title.custom-dialog-title {
+    background-color: $color_blue;
+    color: $color_light;
+    width: 100%;
+    text-align: center;
+  }
+  .custom-dialog-content {
+    display: flex;
+    padding: 20px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    gap: 10px;
+    input {
+      padding: 8px 15px;
+      border-radius: 20px;
+      border: 1px solid $color_grey;
+      transition: 0.3s;
+      &:focus {
+        border: 1px solid $color_green;
+      }
+    }
+  }
+}
+
+.mat-mdc-dialog-actions.custom-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 50px;
+}
+.mat-mdc-dialog-actions.custom-dialog-actions button {
+  background-color: $color_green;
+  font-size: 16px;
+  color: $color_light;
+  padding: 10px 20px;
+  outline: none;
+  border: 0;
+  border-radius: 8px;
+}
+.mat-mdc-dialog-actions.custom-dialog-actions button:disabled {
+  background-color: $color_grey;
+}
+
+.mat-mdc-dialog-actions.custom-dialog-actions .close_button {
+  background-color: $color_red;
+}
+// End Popup
+
+.mat-body p,
+.mat-body-2 p,
+.mat-typography .mat-body p,
+.mat-typography .mat-body-2 p,
+.mat-typography p {
+  margin: 4px !important;
+}
+// scrollbar
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+  height: 12px; /* height of the entire scrollbar */
+}
+
+/* Track */
+// ::-webkit-scrollbar-track {
+// }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: $color_blue_alt; /* color of the scroll thumb */
+  border-radius: 0; /* roundness of the scroll thumb */
+}
+
+/* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $color_blue_alt; /* color of the scroll thumb when hovered */
+// }

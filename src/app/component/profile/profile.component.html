@@ -1,0 +1,74 @@
+<div class="profile">
+  <div class="image-componant">
+    <img src="assets/small.jpg" />
+  </div>
+  <div class="infos">
+    <div class="info">
+      <div>
+        <p>Name</p>
+        <p>{{ user?.firstName + " " + user?.lastName }}</p>
+      </div>
+
+      <div>
+        <p>Code :</p>
+        <p>{{ user?.id }}</p>
+      </div>
+    </div>
+    <div class="info">
+      <div>
+        <p>Major</p>
+        <p>{{ user?.studentDepartment }}</p>
+      </div>
+
+      <div>
+        <p>Level</p>
+        <p>{{ user?.level }}</p>
+      </div>
+    </div>
+    <div class="info">
+      <div>
+        <p>Total Passed CH</p>
+        <p>{{ user?.totalPassedHours }}</p>
+      </div>
+      <div>
+        <p>CGPA</p>
+        <p>{{ user?.gpa }}</p>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div class="wrapper"></div>
+  <!--  -->
+  <div class="infos">
+    <div class="info">
+      <div>
+        <p>ID Card</p>
+        <a href="{{ user?.studentDocuments }}" class="btn__class">View Image</a>
+      </div>
+      <div>
+        <p>High School CER</p>
+        <a href="{{ user?.studentDocuments }}" class="btn__class">View Image</a>
+      </div>
+    </div>
+    <div class="info">
+      <div>
+        <p>Nomination</p>
+        <a href="{{ user?.studentDocuments }}" class="btn__class">View Image</a>
+      </div>
+      <div>
+        <p>Personal Picture</p>
+        <a href="{{ user?.studentDocuments }}" class="btn__class">View Image</a>
+      </div>
+    </div>
+    <div class="info">
+      <div>
+        <p>Birth Document</p>
+        <a href="{{ user?.studentDocuments }}" class="btn__class">View Image</a>
+      </div>
+      <div>
+        <p>Gurdian ID Card</p>
+        <a href="{{ user?.studentDocuments }}" class="btn__class">View Image</a>
+      </div>
+    </div>
+  </div>
+</div>

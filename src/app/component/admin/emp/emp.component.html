@@ -1,0 +1,41 @@
+<div class="myrequests">
+  <div class="my__header">
+    <button class="button-btn btn__green" mat-button (click)="openPopup()">
+      <img src="../../../../assets/user-add.svg" />
+      Add New Employee
+    </button>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col">ID</th>
+          <th class="col">Name</th>
+          <th class="col">ROLE</th>
+          <th class="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row" *ngFor="let emp of employees">
+          <th class="row_id">{{ emp.employeeId }}</th>
+          <th class="row_name">{{ emp.employeeName }}</th>
+          <th class="role">{{ emp.roleName }}</th>
+          <th class="row_status">
+            <button
+              class="btn__class pen"
+              (click)="openEditEmp(emp.employeeId)"
+            >
+              <img src="assets/pen-2.svg" />
+            </button>
+            <button
+              class="btn__class trash"
+              (click)="openDialog(emp.employeeId)"
+            >
+              <img src="assets/trash.svg" />
+            </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

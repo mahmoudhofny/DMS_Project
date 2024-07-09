@@ -1,0 +1,48 @@
+<div class="myrequests">
+  <div class="my__header">
+    <p>
+      <a routerLink="/doctor/material/pending" routerLinkActive="active"
+        >Pending</a
+      >
+    </p>
+    <p>
+      <a routerLink="/doctor/material/archived" routerLinkActive="active"
+        >Archived</a
+      >
+    </p>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col">NUM</th>
+          <th class="col">Name</th>
+          <th class="col">Date</th>
+          <th class="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row" *ngFor="let item of myReqApi; let i = index">
+          <th class="row_id">{{ i + 1 }}</th>
+          <th class="row_name">{{ item.name }}</th>
+          <th class="row_date">{{ item.date.substring(0, 10) }}</th>
+          <th class="row_date">{{ item.from }}</th>
+          <th *ngIf="currPage == 'archived'" class="row_status">
+            <span *ngIf="item.isAccepted == true" class="true_mark">
+              <img src="assets/check.svg" />
+            </span>
+            <span *ngIf="item.isAccepted == false" class="false_mark">
+              <img src="assets/close.svg" />
+            </span>
+          </th>
+        </tr>
+        <div
+          *ngIf="myReqApi?.length == 0"
+          class="alert alert-warning noti_alert"
+        >
+          No Requests Found.
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

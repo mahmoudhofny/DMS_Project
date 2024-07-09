@@ -1,0 +1,92 @@
+<div class="page">
+  <div class="login-link">
+    <div class="logo">
+      <img class="logo-img" src="assets/AI-DMS-LOGOWhiteeeee 1.png  " alt="" />
+    </div>
+    <p class="side-head">Create Your Acount</p>
+    <p class="side-desc">
+      To keep track on your dashboard please Create account
+    </p>
+    <a routerLink="/signup" class="login-btn">Register Now</a>
+  </div>
+  <form action="/home" class="login--form" [formGroup]="loginForm">
+    <p class="login__head">Login to your account</p>
+    <div class="login__content">
+      <div class="tologin">
+        <div class="text__field email">
+          <label for="email"><i class="fa-solid fa-user"></i></label>
+          <input
+            formControlName="email"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter Your Email"
+            required
+          />
+          <p
+            class="form_warn"
+            *ngIf="email?.invalid && (email?.touched || email?.dirty)"
+          >
+            <span *ngIf="email?.errors?.['pattern']">
+              Please Enter Valid Pattern</span
+            >
+            <span *ngIf="email?.errors?.['email']">
+              Please Enter Valid Email</span
+            >
+          </p>
+        </div>
+        <div class="text__field pass">
+          <label for="pass"><i class="fa-solid fa-lock"></i></label>
+          <input
+            formControlName="password"
+            type="{{ passwordType }}"
+            name="pass"
+            id="pass"
+            placeholder="Enter Your Password"
+            required
+          />
+          <button
+            class="show-password"
+            (mouseover)="showPass()"
+            (mouseleave)="showPass()"
+            (click)="showPass()"
+          >
+            Show
+          </button>
+          <p
+            class="form_warn"
+            *ngIf="password?.invalid && (password?.touched || password?.dirty)"
+          >
+            <span *ngIf="password?.errors">
+              Password Must be between 8 & 25
+            </span>
+          </p>
+        </div>
+        <div class="remember-me">
+          <input
+            formControlName="rememberMe"
+            type="checkbox"
+            name="rememberMe"
+            id="rememberMe"
+            value="{{ checkboxValue }}"
+          />
+          <label for="rememberMe" (click)="checkboxRemember()"
+            >Remember Me</label
+          >
+        </div>
+      </div>
+      <p class="form_error" *ngIf="formError">
+        {{ formError }}
+      </p>
+      <div class="pag-btns">
+        <button
+          class="button-btn login-button"
+          (click)="login()"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

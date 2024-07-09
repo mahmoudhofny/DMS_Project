@@ -1,0 +1,61 @@
+<div class="all__page">
+  <div class="sidebar">
+    <div class="top__sidebar">
+      <h2 class="page__h2">
+        <img src="assets/Frame 3.png" alt="logo" />
+      </h2>
+      <ul class="page__list">
+        <li
+          class="page__link"
+          routerLink="/home/requests"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/bento-square.svg" alt="Requests" /></span>
+          <a>Requests</a>
+        </li>
+        <li
+          class="page__link"
+          routerLink="/home/myrequests/pending"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/book.svg" alt="Requests" /></span>
+          <a routerLinkActive="active">My Requests</a>
+        </li>
+        <li
+          class="page__link"
+          routerLink="/home/settings"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/Setting.svg" alt="Requests" /></span>
+          <a>Settings</a>
+        </li>
+      </ul>
+    </div>
+    <button routerLink="/login" class="bottom__sidebar" (click)="logout()">
+      <span><img src="assets/logout.svg" alt="Requests" /></span>
+      <span class="logout_text">Logout</span>
+    </button>
+  </div>
+  <div class="main__page">
+    <div class="header">
+      <div class="icons">
+        <button class="noti" mat-button (click)="openPopup()">
+          <img src="assets/bell.svg" alt="notifacations" />
+        </button>
+        <div class="user">
+          <a routerLink="profile"
+            ><img [src]="url" alt="avatar" />
+            <span>{{ studentSettings?.email }}</span></a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="all__section">
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

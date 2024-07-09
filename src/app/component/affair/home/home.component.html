@@ -1,0 +1,64 @@
+<div class="all__page">
+  <div class="sidebar">
+    <div class="top__sidebar">
+      <h2 class="page__h2">
+        <img src="assets/Frame 3.png" alt="logo" />
+      </h2>
+      <ul class="page__list">
+        <li
+          class="page__link"
+          routerLink="/affair/regs/pending"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/user-add.svg" /></span>
+          <a routerLinkActive="active">Registration Requests</a>
+        </li>
+        <li
+          class="page__link"
+          routerLink="/affair/academic/pending"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/bento-square.svg" /></span>
+          <a>Academic Requests</a>
+        </li>
+        <li
+          class="page__link"
+          routerLink="/affair/documents"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/clipboard.svg" /></span>
+          <a>Students Documents</a>
+        </li>
+        <li
+          class="page__link"
+          routerLink="/affair/Settings"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/Setting.svg" alt="Settings" /></span>
+          <a>Settings</a>
+        </li>
+      </ul>
+    </div>
+    <button routerLink="/login" class="bottom__sidebar" (click)="logout()">
+      <span><img src="assets/logout.svg" alt="Requests" /></span>
+      <span class="logout_text">Logout</span>
+    </button>
+  </div>
+  <div class="main__page">
+    <div class="header">
+      <div class="icons">
+        <button class="noti" (click)="openPopup()">
+          <img src="assets/bell.svg" alt="notifacations" />
+        </button>
+        <div class="user"></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="all__section">
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

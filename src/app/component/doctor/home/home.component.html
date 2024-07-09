@@ -1,0 +1,49 @@
+<div class="all__page">
+  <div class="sidebar">
+    <div class="top__sidebar">
+      <h2 class="page__h2">
+        <img src="assets/Frame 3.png" alt="logo" />
+      </h2>
+      <ul class="page__list">
+        <li
+          class="page__link"
+          routerLink="/doctor/material"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/bento-square.svg" alt="Requests" /></span>
+          <a>Material Requests</a>
+        </li>
+        <li
+          class="page__link"
+          routerLink="/doctor/settings"
+          routerLinkActive="active"
+        >
+          <span><img src="assets/Setting.svg" alt="Requests" /></span>
+          <a>Settings</a>
+        </li>
+      </ul>
+    </div>
+    <button routerLink="/login" class="bottom__sidebar" (click)="logout()">
+      <span><img src="assets/logout.svg" alt="Requests" /></span>
+      <span class="logout_text">Logout</span>
+    </button>
+  </div>
+  <div class="main__page">
+    <div class="header">
+      <div class="icons">
+        <button class="noti" (click)="openPopup()">
+          <img src="assets/bell.svg" alt="notifacations" />
+          <!-- <span>{{ notis.lenght }}</span> -->
+        </button>
+        <div class="user"></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="all__section">
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

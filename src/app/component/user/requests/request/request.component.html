@@ -1,0 +1,34 @@
+<div class="request-container">
+  <h2>{{ req?.name }}</h2>
+  <div class="upload-img">
+    <p for="nomination">Upload payment receipt</p>
+    <div class="upload-img">
+      <form [formGroup]="uploadRequest" class="form_req">
+        <div class="text__field">
+          <img src="{{ url }}" height="{{ imageHight }}" />
+          <input type="file" (change)="onFileChange($event)" />
+          <br />
+          <br />
+          <label for="desc"></label>
+          <input
+            formControlName="description"
+            placeholder="Set the description"
+            type="text"
+            id="desc"
+            required
+          />
+        </div>
+
+        <select formControlName="super" class="classic" *ngIf="material">
+          <option>--Select Supervisor--</option>
+          <ng-container *ngFor="let item of supers">
+            <option value="{{ item.id }}">
+              {{ item.id }} Doctor : {{ item?.userName }}
+            </option>
+          </ng-container>
+        </select>
+        <button class="btn__class" (click)="postRequest()">Request</button>
+      </form>
+    </div>
+  </div>
+</div>

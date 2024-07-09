@@ -1,0 +1,44 @@
+$color_blue: #3f69ff;
+$color_blue_alt: #113fe2;
+$color_back: #f5f5f9;
+$color_red: rgb(188, 5, 5);
+$color_green: rgb(5, 131, 1);
+$color_grey: #888;
+
+.close_button {
+  color: red;
+  cursor: pointer;
+  align-self: end;
+  margin-top: 5px;
+  margin-right: 15px;
+  position: fixed;
+  z-index: 99;
+  background-color: #ffffff;
+  border: 2px solid $color_red;
+  img {
+    display: flex;
+  }
+}
+// POpup COmponent
+
+.mat-mdc-dialog-container-with-actions .mat-mdc-dialog-content {
+  padding: 10px !important;
+}
+.noti_list {
+  padding: 10px;
+  .noti {
+    cursor: pointer;
+    color: black;
+    border-bottom: 1px solid #ccc;
+    .name {
+      color: $color_blue_alt;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .date {
+      text-align: right;
+      color: $color_grey;
+      font-size: 12px;
+    }
+  }
+}

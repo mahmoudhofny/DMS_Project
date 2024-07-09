@@ -1,0 +1,57 @@
+<div class="myrequests">
+  <div class="my__header">
+    <p>
+      <a routerLink="/affair/regs/pending" routerLinkActive="active">Pending</a>
+    </p>
+    <p>
+      <a routerLink="/affair/regs/archived" routerLinkActive="active"
+        >Archived</a
+      >
+    </p>
+  </div>
+
+  <div class="search_component">
+    <div class="search">
+      <div class="image">
+        <img src="/assets/search.svg" alt="" />
+      </div>
+      <input
+        #searchInput
+        type="text"
+        name="search"
+        placeholder="Search in documents"
+      />
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col">Num</th>
+          <th class="col">from</th>
+          <th class="col">Date</th>
+          <th *ngIf="currPage == 'archived'" class="col">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row" *ngFor="let item of myRegs; let i = index">
+          <th class="row_id">{{ i + 1 }}</th>
+          <th class="row_from">{{ item.name }}</th>
+          <th class="row_date">{{ item.date.substring(0, 10) }}</th>
+          <th *ngIf="currPage == 'archived'" class="row_status">
+            <span *ngIf="item.isAccepted == true" class="true_mark">
+              <img src="assets/check.svg" />
+            </span>
+            <span *ngIf="item.isAccepted == false" class="false_mark">
+              <img src="assets/close.svg" />
+            </span>
+          </th>
+        </tr>
+        <div *ngIf="myRegs?.length == 0" class="alert alert-warning noti_alert">
+          No Requests Found.
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

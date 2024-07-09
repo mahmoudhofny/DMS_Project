@@ -1,0 +1,54 @@
+<div class="docs">
+  <div class="search_component">
+    <div class="search">
+      <div class="image">
+        <img src="/assets/search.svg" alt="" />
+      </div>
+      <input
+        #searchInput
+        type="text"
+        name="search"
+        placeholder="Search in documents"
+      />
+    </div>
+  </div>
+  <!-- {{ theDocment?.filePath }} -->
+  <div class="aca_page">
+    <div class="head">
+      <h1 class="header">Academic Requests</h1>
+    </div>
+
+    <div class="boxes">
+      <div class="box" *ngFor="let item of allDocs">
+        <a target="_blank" href="{{ item?.filePath }}">
+          <div class="image">
+            <div class="title">
+              <img
+                *ngIf="(item?.filePath).slice(-3) == 'pdf'"
+                src="assets/pdf 1.svg"
+                alt="pic"
+              />
+              <img
+                *ngIf="
+                  (item?.filePath).slice(-3) == 'jpg' ||
+                  (item?.filePath).slice(-3) == 'png' ||
+                  (item?.filePath).slice(-4) == 'jpeg'
+                "
+                src="{{ item.filePath }}"
+                alt="pic"
+              />
+            </div>
+          </div>
+        </a>
+        <p>File Name : {{ item.fileName.substring(0, 15) }}</p>
+        <p>
+          {{
+            (item?.uploadedAt).substring(0, 10) +
+              " " +
+              (item?.uploadedAt).substring(11, 16)
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

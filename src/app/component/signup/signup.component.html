@@ -1,0 +1,582 @@
+<section>
+  <div class="page">
+    <!-- To Login Link -->
+    <div class="login-link">
+      <div class="logo">
+        <img
+          class="logo-img"
+          src="assets/AI-DMS-LOGOWhiteeeee 1.png"
+          alt="logo"
+        />
+      </div>
+      <p class="side-head">Alradey a member ?</p>
+      <p class="side-desc">
+        To keep track on your dashboard please login with your account
+      </p>
+      <a href="/login" class="login-btn">Login</a>
+    </div>
+    <!--  -->
+    <div class="signup">
+      <p class="signup-head">Create Account</p>
+      <div class="progress">
+        <div class="stage">
+          <p class="tool">ID</p>
+          <p
+            class="nums num-1"
+            [class.active]="numsActive[0]"
+            [class.done]="numsDone[0]"
+          >
+            1
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Info</p>
+          <p
+            class="nums num-2"
+            [class.active]="numsActive[1]"
+            [class.done]="numsDone[1]"
+          >
+            2
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Nom</p>
+          <p
+            class="nums num-3"
+            [class.active]="numsActive[2]"
+            [class.done]="numsDone[2]"
+          >
+            3
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">ID</p>
+          <p
+            class="nums num-4"
+            [class.active]="numsActive[3]"
+            [class.done]="numsDone[3]"
+          >
+            4
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">ID</p>
+          <p
+            class="nums num-5"
+            [class.active]="numsActive[4]"
+            [class.done]="numsDone[4]"
+          >
+            5
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Birth</p>
+          <p
+            class="nums num-6"
+            [class.active]="numsActive[5]"
+            [class.done]="numsDone[5]"
+          >
+            6
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Sec</p>
+          <p
+            class="nums num-7"
+            [class.active]="numsActive[6]"
+            [class.done]="numsDone[6]"
+          >
+            7
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Pic</p>
+          <p
+            class="nums num-8"
+            [class.active]="numsActive[7]"
+            [class.done]="numsDone[7]"
+          >
+            8
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Gaurd</p>
+          <p
+            class="nums num-8"
+            [class.active]="numsActive[8]"
+            [class.done]="numsDone[8]"
+          >
+            9
+          </p>
+        </div>
+        <div class="stage">
+          <p class="tool">Gaurd</p>
+          <p
+            class="nums num-8"
+            [class.active]="numsActive[9]"
+            [class.done]="numsDone[9]"
+          >
+            10
+          </p>
+        </div>
+      </div>
+
+      <div class="signup-content">
+        <!-- Stage 1 Form ID -->
+        <form [formGroup]="idSingupForm">
+          <div [hidden]="stageActive[0]">
+            <div class="upload-img">
+              <p>Set Your National Id</p>
+
+              <!-- firstName -->
+              <div class="text__field id_">
+                <label for="id"><i class="fa-solid fa-user"></i></label>
+                <input
+                  formControlName="id"
+                  type="text"
+                  name="id"
+                  placeholder="Set Your National Id"
+                  required
+                />
+              </div>
+            </div>
+            <p class="form_error">
+              <!-- {{ error1 }} -->
+            </p>
+            <div class="pag-btns">
+              <button
+                class="next-page button-btn"
+                (click)="idNext()"
+                [disabled]="idSingupForm.invalid"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- STUDENT INFO -->
+        <div [hidden]="stageActive[1]">
+          <form [formGroup]="signUpForm">
+            <div class="upload-img">
+              <!-- firstName -->
+              <div class="text__field first__form">
+                <input
+                  formControlName="firstName"
+                  type="text"
+                  name="firstName"
+                  placeholder="Set Your First Name"
+                  required
+                />
+                <div
+                  class="form_warn"
+                  *ngIf="
+                    firstName?.invalid &&
+                    (firstName?.touched || firstName?.dirty)
+                  "
+                >
+                  <span *ngIf="firstName?.errors"> Set Vaild First Name </span>
+                </div>
+              </div>
+              <!-- last -->
+              <div class="text__field last__form">
+                <input
+                  formControlName="lastName"
+                  type="text"
+                  name="lastName"
+                  placeholder="Set Your Last Name"
+                  required
+                />
+                <div
+                  class="form_warn"
+                  *ngIf="
+                    lastName?.invalid && (lastName?.touched || lastName?.dirty)
+                  "
+                >
+                  <span *ngIf="lastName?.errors"> Set Vaild Phone </span>
+                </div>
+              </div>
+              <!-- userName -->
+              <div class="text__field username__form">
+                <label for="userName"><i class="fa-solid fa-user"></i></label>
+                <input
+                  formControlName="userName"
+                  type="text"
+                  name="userName"
+                  placeholder="Set Your Username"
+                  required
+                />
+                <div
+                  class="form_warn"
+                  *ngIf="
+                    userName?.invalid && (userName?.touched || userName?.dirty)
+                  "
+                >
+                  <span *ngIf="userName?.errors?.['required']">
+                    Username is Required</span
+                  >
+                </div>
+              </div>
+              <!-- Email -->
+              <div class="text__field email__form">
+                <label for="email"><i class="fa-solid fa-user"></i></label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Set Your Email"
+                  required
+                />
+                <div
+                  class="form_warn"
+                  *ngIf="email?.invalid && (email?.touched || email?.dirty)"
+                >
+                  <span *ngIf="email?.errors"> Please Enter Valid Email</span>
+                </div>
+              </div>
+              <!-- Pass -->
+              <div class="text__field password__form">
+                <label for="password"><i class="fa-solid fa-user"></i></label>
+                <input
+                  formControlName="password"
+                  type="{{ passwordType }}"
+                  name="password"
+                  id="password"
+                  placeholder="Set Your Password"
+                  required
+                />
+                <button
+                  class="show-password"
+                  (mouseover)="showPass()"
+                  (mouseleave)="showPass()"
+                >
+                  Show
+                </button>
+                <div
+                  class="form_warn"
+                  *ngIf="
+                    password?.invalid && (password?.touched || password?.dirty)
+                  "
+                >
+                  <span *ngIf="password?.errors">
+                    Password Must be between 8 & 25
+                  </span>
+                </div>
+              </div>
+              <!-- phoneNumber -->
+              <div class="text__field phone__form">
+                <input
+                  formControlName="phoneNumber"
+                  type="text"
+                  name="phoneNumber"
+                  id="phoneNumber"
+                  placeholder="Set Your Phone Number"
+                  required
+                />
+                <div
+                  class="form_warn"
+                  *ngIf="
+                    phoneNumber?.invalid &&
+                    (phoneNumber?.touched || phoneNumber?.dirty)
+                  "
+                >
+                  <span *ngIf="phoneNumber?.errors"> Set Vaild Phone </span>
+                </div>
+              </div>
+              <!-- DateOfBirth -->
+              <div class="text__field date__form">
+                <input
+                  formControlName="dateOfBirth"
+                  type="date"
+                  name="dateOfBirth"
+                  id="dateOfBirth"
+                  required
+                />
+                <div
+                  class="form_warn"
+                  *ngIf="date?.invalid && (date?.touched || date?.dirty)"
+                >
+                  <span *ngIf="date?.errors"> Set Your Birth Day </span>
+                </div>
+              </div>
+              <!-- isMale -->
+              <div class="text__field ismale__form">
+                <select formControlName="isMale" id="isMale">
+                  <option value="">Select You Gender</option>
+                  <option value="{{ genderMale }}">Male</option>
+                  <option value="{{ genderFemale }}">Female</option>
+                </select>
+                <div
+                  class="form_warn"
+                  *ngIf="isMale?.invalid && (isMale?.touched || isMale?.dirty)"
+                >
+                  <span *ngIf="isMale?.errors"> Set Your Gender </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 0;
+                  numsDone[0] = '';
+                  numsActive[1] = '';
+                  stageActive[0] = '';
+                  stageActive[1] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="infoNext()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents -->
+        <div [hidden]="stageActive[2]">
+          <p>Upload Your Nomanation</p>
+          <form [formGroup]="uploadNomForm">
+            <!-- upload nom -->
+            <div class="upload-img">
+              <img src="{{ url1 }}" height="{{ imageHight1 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 1;
+                  numsDone[1] = '';
+                  numsActive[2] = '';
+                  stageActive[1] = '';
+                  stageActive[2] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents2 -->
+        <div [hidden]="stageActive[3]">
+          <form [formGroup]="upload2">
+            <!-- upload id -->
+            <div class="upload-img">
+              <p>Upload Your Id Picture</p>
+              <img src="{{ url2 }}" height="{{ imageHight2 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange2($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 2;
+                  numsDone[2] = '';
+                  numsActive[3] = '';
+                  stageActive[2] = '';
+                  stageActive[3] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument2()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents3 -->
+        <div [hidden]="stageActive[4]">
+          <form [formGroup]="upload3">
+            <div class="upload-img">
+              <img src="{{ url3 }}" height="{{ imageHight3 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange3($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 3;
+                  numsDone[3] = '';
+                  numsActive[4] = '';
+                  stageActive[3] = '';
+                  stageActive[4] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument3()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents4 -->
+        <div [hidden]="stageActive[5]">
+          <form [formGroup]="upload4">
+            <!-- upload nom -->
+            <div class="upload-img">
+              <img src="{{ url4 }}" height="{{ imageHight4 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange4($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 4;
+                  numsDone[4] = '';
+                  numsActive[5] = '';
+                  stageActive[4] = '';
+                  stageActive[5] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument4()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents5 -->
+        <div [hidden]="stageActive[6]">
+          <form [formGroup]="upload5">
+            <!-- upload nom -->
+            <div class="upload-img">
+              <img src="{{ url5 }}" height="{{ imageHight5 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange5($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 5;
+                  numsDone[5] = '';
+                  numsActive[6] = '';
+                  stageActive[5] = '';
+                  stageActive[6] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument5()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents6 -->
+        <div [hidden]="stageActive[7]">
+          <form [formGroup]="upload6">
+            <!-- upload nom -->
+            <div class="upload-img">
+              <img src="{{ url6 }}" height="{{ imageHight6 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange6($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 6;
+                  numsDone[6] = '';
+                  numsActive[7] = '';
+                  stageActive[6] = '';
+                  stageActive[7] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument6()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents7 -->
+        <div [hidden]="stageActive[8]">
+          <form [formGroup]="upload7">
+            <!-- upload nom -->
+            <div class="upload-img">
+              <img src="{{ url7 }}" height="{{ imageHight7 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange7($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 7;
+                  numsDone[7] = '';
+                  numsActive[8] = '';
+                  stageActive[7] = '';
+                  stageActive[8] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument7()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- Upload documents8 -->
+        <div [hidden]="stageActive[9]">
+          <form [formGroup]="upload8">
+            <!-- upload nom -->
+            <div class="upload-img">
+              <img src="{{ url8 }}" height="{{ imageHight8 }}" />
+              <div class="text__field nom__form">
+                <input type="file" (change)="onFileChange8($event)" />
+              </div>
+            </div>
+            <!-- buttons -->
+            <div class="pag-btns">
+              <button
+                class="previous-p button-btn"
+                (click)="
+                  stageNumber = 8;
+                  numsDone[8] = '';
+                  numsActive[9] = '';
+                  stageActive[8] = '';
+                  stageActive[9] = 'true'
+                "
+              >
+                Previous
+              </button>
+              <button class="next-p button-btn" (click)="uploadDocument8()">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

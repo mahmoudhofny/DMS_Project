@@ -1,0 +1,67 @@
+<div class="myrequests">
+  <div class="my__header">
+    <p>
+      <a routerLink="/affair/academic/pending" routerLinkActive="active"
+        >Pending</a
+      >
+    </p>
+    <p>
+      <a routerLink="/affair/academic/archived" routerLinkActive="active"
+        >Archived</a
+      >
+    </p>
+  </div>
+  <div class="search_component">
+    <div class="search">
+      <div class="image">
+        <img src="/assets/search.svg" alt="" />
+      </div>
+      <input
+        #searchInput
+        type="text"
+        name="search"
+        placeholder="Search in documents"
+      />
+
+      <!-- (keyup)="getAcadmicReqByName(currPage, searchInput.value)" -->
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col">Num</th>
+          <th class="col">Name</th>
+          <th class="col">Date</th>
+          <th class="col">from</th>
+          <th *ngIf="currPage == 'archived'" class="col">status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of myReqApi; let i = index">
+          <tr class="row" (click)="openRequest(item.id)">
+            <th class="row_id">{{ i + 1 }}</th>
+            <th class="row_name">{{ item.name }}</th>
+            <th class="row_date">{{ item.date.substring(0, 10) }}</th>
+            <th class="row_date">{{ item.from }}</th>
+            <th *ngIf="currPage == 'archived'" class="row_status">
+              <span *ngIf="item.isAccepted == true" class="true_mark">
+                <img src="assets/check.svg" />
+              </span>
+              <span *ngIf="item.isAccepted == false" class="false_mark">
+                <img src="assets/close.svg" />
+              </span>
+            </th>
+          </tr>
+        </ng-container>
+        <div
+          *ngIf="myReqApi?.length == 0"
+          class="alert alert-warning noti_alert"
+        >
+          No Requests Found.
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

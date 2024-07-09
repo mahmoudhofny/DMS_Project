@@ -1,0 +1,42 @@
+<div class="setting">
+  <div class="image-componant">
+    <img src="{{ imageSrc }}" />
+    <label for="imagesrc">Change Photo</label>
+    <input
+      type="file"
+      id="imagesrc"
+      (change)="onSelectFile($event)"
+      accept="image/*"
+    />
+  </div>
+  <div class="setting-rows">
+    <div class="row">
+      <h3>Username</h3>
+      <p>{{ studentSettings?.userName }}</p>
+      <button class="btn__class">
+        <img src="assets/pen-2.svg" alt="edit" />
+      </button>
+    </div>
+    <div class="row">
+      <h3>Email</h3>
+      <p>{{ studentSettings?.email }}</p>
+      <button class="btn__class">
+        <img src="assets/pen-2.svg" alt="edit" />
+      </button>
+    </div>
+    <div class="row">
+      <h3>Password</h3>
+      <p>{{ studentSettings?.password }}</p>
+      <button class="btn__class">
+        <img src="assets/pen-2.svg" alt="edit" />
+      </button>
+    </div>
+    <div class="row">
+      <h3>Phone</h3>
+      <p>{{ studentSettings?.phone }}</p>
+      <button class="btn__class" disabled>
+        <img src="assets/pen-2.svg" alt="edit" />
+      </button>
+    </div>
+  </div>
+</div>

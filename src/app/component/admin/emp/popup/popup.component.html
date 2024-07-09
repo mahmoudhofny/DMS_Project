@@ -1,0 +1,146 @@
+<a class="close_button" mat-button (click)="close()">
+  <img src="/assets/close.svg" alt="" />
+</a>
+
+<h2 mat-dialog-title class="custom-dialog-title">Add Employee</h2>
+
+<form [formGroup]="addEmployee" (ngSubmit)="onSubmit()">
+  <div class="form__group">
+    <mat-dialog-content class="custom-dialog-content">
+      <input
+        formControlName="nationalId"
+        type="text"
+        name="nationalId"
+        placeholder="National Id"
+        required
+      />
+      <input
+        formControlName="firstName"
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="firstName?.invalid && firstName?.touched && firstName?.dirty"
+      >
+        <span *ngIf="firstName?.errors">
+          First Name Must be between 3 & 50
+        </span>
+      </p>
+      <input
+        formControlName="lastName"
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="lastName?.invalid && lastName?.touched && lastName?.dirty"
+      >
+        <span *ngIf="lastName?.errors"> Last Name Must be between 3 & 50 </span>
+      </p>
+      <input
+        formControlName="userName"
+        type="text"
+        name="userName"
+        placeholder="Username"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="userName?.invalid && userName?.touched && userName?.dirty"
+      >
+        <span *ngIf="userName?.errors"> User Name Must be between 6 & 20 </span>
+      </p>
+      <input
+        formControlName="email"
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="email?.invalid && email?.touched && email?.dirty"
+      >
+        <span *ngIf="email?.errors"> User Name Must Valid Email </span>
+      </p>
+      <input
+        formControlName="password"
+        type="text"
+        name="password"
+        placeholder="Password"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="password?.invalid && password?.touched && password?.dirty"
+      >
+        <span *ngIf="password?.errors"> {{ (password?.errors)![0] }} </span>
+      </p>
+      <input
+        formControlName="phoneNumber"
+        type="text"
+        name="phoneNumber"
+        placeholder="Phone Number"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="
+          phoneNumber?.invalid && phoneNumber?.touched && phoneNumber?.dirty
+        "
+      >
+        <span *ngIf="phoneNumber?.errors"> Phone Must be Right </span>
+      </p>
+      <input
+        formControlName="dateOfBirth"
+        type="date"
+        name="dateOfBirth"
+        placeholder="Date Of Birth"
+        required
+      />
+      <p
+        class="form_warn"
+        *ngIf="
+          dateOfBirth?.invalid && dateOfBirth?.touched && dateOfBirth?.dirty
+        "
+      >
+        <span *ngIf="dateOfBirth?.errors"> InValid Date </span>
+      </p>
+      <select formControlName="role" id="role" required>
+        <option value="">--Please choose an option--</option>
+        <option value="Affairs Officer">Affairs Officer</option>
+        <option value="Academic Supervisor">Academic Supervisor</option>
+      </select>
+
+      <p
+        class="form_warn"
+        *ngIf="
+          dateOfBirth?.invalid && dateOfBirth?.touched && dateOfBirth?.dirty
+        "
+      >
+        <span *ngIf="dateOfBirth?.errors"> Choose From 2 or 3 </span>
+      </p>
+      <div class="done" *ngIf="added == true">Added successfully</div>
+      <!-- <ng-container> -->
+      <div class="form_erorr" *ngIf="formError">
+        <span>{{ formError }}</span>
+      </div>
+      <!-- </ng-container> -->
+    </mat-dialog-content>
+    <mat-dialog-actions class="custom-dialog-actions">
+      <button
+        mat-button
+        type="submit"
+        [disabled]="addEmployee.invalid"
+        (click)="postFun()"
+      >
+        Add Employee
+      </button>
+    </mat-dialog-actions>
+  </div>
+</form>

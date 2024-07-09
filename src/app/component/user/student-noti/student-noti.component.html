@@ -1,0 +1,20 @@
+<a class="close_button" mat-button (click)="close()">
+  <img src="/assets/close.svg" alt="" />
+</a>
+
+<h2 mat-dialog-title class="custom-dialog-title">Notifications</h2>
+
+<div class="noti_list" *ngFor="let noti of notis">
+  <div
+    class="noti"
+    [routerLink]="['/home/myrequests/archived']"
+    (click)="close()"
+  >
+    <div class="name">{{ noti.userFirstName + " " + noti.userLastName }}</div>
+    <p class="message">{{ noti.message }}</p>
+    <p class="date">{{ noti.createdAt }}</p>
+  </div>
+</div>
+<div *ngIf="notis?.length == 0" class="alert alert-warning noti_alert">
+  No Notifications Found.
+</div>

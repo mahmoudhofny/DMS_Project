@@ -1,0 +1,15 @@
+<div>
+  <div class="requests__section">
+    <h2>Available Academic Services</h2>
+    <div class="requests">
+      <ul class="requests__list">
+        <li *ngFor="let item of requests">
+          <p>{{ item.showName }}</p>
+          <button class="btn__class" (click)="openRequest(item.name)">
+            Request
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
